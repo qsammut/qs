@@ -5,7 +5,6 @@ let scene2;
 let scene3;
 let started = false;
 
-
 let game;
 
 let game2;

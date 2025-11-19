@@ -1,0 +1,28 @@
+html, body {
+  background-image: url("pinkStar.jpg");
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: inline-block;
+}
+
+#content{
+  display: flex;
+  justify-content: center;
+}
+
+.sideblock{
+  background-color: pink;
+  width: 150px;
+  height: 400px;
+  display: inline-block;
+  justify-content: center;
+
+}
+
+#pixled{
+  display: inline-block;
+  justify-content: center;
+
+}

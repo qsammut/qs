@@ -4,25 +4,72 @@ html, body {
   padding: 0;
 }
 canvas {
+  background-color: rgb(243, 159, 199);
+  margin-left: 20px;
   display: inline-block;
+
+  border: 200px rgb(246, 29, 166);
+
+
 }
 
-#content{
+#container{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .sideblock{
-  background-color: pink;
-  width: 150px;
-  height: 400px;
-  display: inline-block;
-  justify-content: center;
-
+  background-color: rgb(255, 146, 164);
+  padding-left: 5px;
+  margin: 15px;
 }
 
 #pixled{
-  display: inline-block;
-  justify-content: center;
+  display: inline;
+  padding:7px;
 
+}
+
+#bottomText{
+  background-color: rgb(246, 29, 166);
+  padding-left: 5px;
+  margin: 15px;
+  font-size: larger;
+
+}
+
+#head{
+  background-color: palevioletred;
+  margin: 15px;
+
+}
+
+
+.button-class{
+  display: block;
+  background-color: rgb(254, 138, 241);
+  padding-left: 5px;
+  margin: 7px;
+  margin-left: 15px;
+  border-radius: 5px;
+  color: rgb(123, 8, 98);
+  border-color: rgb(89, 10, 73);
+  font-size: medium;
+}
+
+#back{
+  background-color: rgb(244, 94, 214);
+  padding-left: 5px;
+  margin: 15px;
+  font-size: larger;
+}
+
+#forward{
+  background-color: rgb(255, 164, 255);
+  padding-left: 5px;
+  margin: 15px;
+  font-size: larger;
+  text-align: right;
 }

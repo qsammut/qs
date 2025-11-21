@@ -5,6 +5,23 @@ let scene2;
 let scene3;
 let started = false;
 
+let button1;
+let button2;
+let button3;
+let button4;
+let button5;
+let button6;
+let button7;
+let button8;
+let button9;
+let button10;
+let button11;
+let button12;
+let button13;
+let button14;
+let button15;
+
+
 let game;
 
 let game2;
@@ -84,6 +101,8 @@ function setup() {
   scene14 = new Scene(jim, new Guy(kkarp,300,300, banana));
   scene15 = new Scene(bar, new Guy(camp,300,300, roads));
 
+  currentScene = scene1;
+
   sceneList.push(scene1);
   sceneList.push(scene2);
   sceneList.push(scene3);
@@ -102,8 +121,134 @@ function setup() {
   
   game = new Game(sceneList);
 
+ 
+
+  button1 = createButton("Mother of Pearl- Roxy Music")
+  button2 = createButton("My Lady of Mercy- The Last Dinner Party ")
+  button3 = createButton("Another Girl, Another Planet- The Only Ones")
+  button4 = createButton("Ripple- Grateful Dead")
+  button5 = createButton("Get Out the Map- Indigo Girls")
+  button6 = createButton("Lady Grinning Soul- David Bowie")
+  button7 = createButton("Absolutely Cuckoo- The Magnetic Fields")
+  button8 = createButton("Only Happy When It Rains- Garbage")
+  button9 = createButton("Dance, Dance- Fall Out Boy")
+  button10 = createButton("Rollin- Limp Bizkit")
+  button11 = createButton("HOT TO GO!- Chappell Roan")
+  button12 = createButton("I Destroyed Disco- The Dare")
+  button13 = createButton("Human Fly- The Cramps")
+  button14 = createButton("Bananaphone- Raffi")
+  button15 = createButton("Take Me Home, Country Roads- John Denver")
+
+  button1.mousePressed(Press1)
+  button2.mousePressed(Press2)
+  button3.mousePressed(Press3)
+  button4.mousePressed(Press4)
+  button5.mousePressed(Press5)
+  button6.mousePressed(Press6)
+  button7.mousePressed(Press7)
+  button8.mousePressed(Press8)
+  button9.mousePressed(Press9)
+  button10.mousePressed(Press10)
+  button11.mousePressed(Press11)
+  button12.mousePressed(Press12)
+  button13.mousePressed(Press13)
+  button14.mousePressed(Press14)
+  button15.mousePressed(Press15)
+
+  button1.parent("s");
+  button2.parent("s");
+  button3.parent("s");
+  button4.parent("s");
+  button5.parent("s");
+  button6.parent("s");
+  button7.parent("s");
+  button8.parent("s");
+  button9.parent("s");
+  button10.parent("s");
+  button11.parent("s");
+  button12.parent("s");
+  button13.parent("s");
+  button14.parent("s");
+  button15.parent("s");
+
+  button1.class("button-class")
+  button2.class("button-class")
+  button3.class("button-class")
+  button4.class("button-class")
+  button5.class("button-class")
+  button6.class("button-class")
+  button7.class("button-class")
+  button8.class("button-class")
+  button9.class("button-class")
+  button10.class("button-class")
+  button11.class("button-class")
+  button12.class("button-class")
+  button13.class("button-class")
+  button14.class("button-class")
+  button15.class("button-class")
+
+}
+
+function Press1(){
   currentScene = scene1;
 }
+
+function Press2(){ 
+  currentScene = scene2;
+}
+
+function Press3(){
+  currentScene = scene3;
+}
+
+function Press4(){
+  currentScene = scene4;
+}
+
+function Press5(){
+  currentScene = scene5;
+}
+
+function Press6(){
+  currentScene = scene6;
+}
+
+function Press7(){
+  currentScene = scene7;
+}
+
+function Press8(){
+  currentScene = scene8;
+}
+
+function Press9(){
+  currentScene = scene9;
+}
+
+function Press10(){
+  currentScene = scene10;
+}
+
+function Press11(){
+  currentScene = scene11;
+}
+
+function Press12(){
+  currentScene = scene12;
+}
+
+function Press13(){
+  currentScene = scene13;
+}
+
+function Press14(){
+  currentScene = scene14;
+}
+
+function Press15(){
+  currentScene = scene15;
+}
+
 
 
 function draw() {
@@ -115,13 +260,15 @@ function draw() {
     textSize(15)
     textAlign(CENTER)
     text("click", 200,200);
+    // currentScene = scene1;
   }}
 
 function mousePressed(){
   started = true;
+
 }
   
-/////////CLASSES///////////
+/////////CLASSES/////////////////////////////////////////////////////////
 class Guy{
   constructor(img, w, h, music){
     this.img = img; 
@@ -161,7 +308,7 @@ class Guy{
     }
   }
 }
-//switch to img when get img lol 
+
 class Scene {
   constructor(img, Guy) {
     this.img = img;

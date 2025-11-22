@@ -24,6 +24,8 @@ canvas {
   background-color: rgb(255, 146, 164);
   padding-left: 5px;
   margin: 15px;
+  display: flex;
+
 }
 
 #pixled{
@@ -72,4 +74,9 @@ canvas {
   margin: 15px;
   font-size: larger;
   text-align: right;
+}
+
+.item{
+  font-size: medium;
+  color:rgb(79, 0, 72);
 }

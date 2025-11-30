@@ -1,5 +1,7 @@
 html, body {
   background-image: url("pinkStar.jpg");
+  background-repeat: repeat;
+  background-size: 450px 500px;
   margin: 0;
   padding: 0;
 }

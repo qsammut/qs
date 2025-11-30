@@ -63,9 +63,14 @@ canvas {
 
 #back{
   background-color: rgb(244, 94, 214);
+  color: rgb(89, 10, 73);
   padding-left: 5px;
   margin: 15px;
   font-size: larger;
+}
+
+#back > a {
+  text-decoration: none;
 }
 
 #forward{
@@ -74,6 +79,10 @@ canvas {
   margin: 15px;
   font-size: larger;
   text-align: right;
+}
+
+#forward > a {
+  text-decoration: none;
 }
 
 .item{

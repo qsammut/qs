@@ -21,10 +21,7 @@ let button13;
 let button14;
 let button15;
 
-
 let game;
-
-let game2;
 
 let sceneList = [];
 let currentScene;
@@ -85,21 +82,21 @@ function preload(){
 function setup() {
   createCanvas(400, 400);
   
-  scene1 = new Scene(lake,new Guy(paddle, 300,300, roxy));
-  scene2 = new Scene(school, new Guy(robot,300,300, mercy));
-  scene3 = new Scene(deb,new Guy(debs,300,300, anotherGirl));
-  scene4 = new Scene(blu, new Guy(fam,300,300, ripple));
-  scene5 = new Scene(denison, new Guy(home,300,300, mapp));
-  scene6 = new Scene(prep, new Guy(frank,300,300, soul));
-  scene7 = new Scene(scripps, new Guy(squad,300,300, feilds));
-  scene8 = new Scene(room, new Guy(tinyQuinn,400,400, rain));
-  scene9 = new Scene(town, new Guy(emo,300,300, dance));
-  scene10 = new Scene(street, new Guy(pw, 450,450, rollin));
-  scene11 = new Scene(dances, new Guy(zo,300,300, hot));
-  scene12 = new Scene(coast, new Guy(ak,300,300, disco));
-  scene13 = new Scene(HW, new Guy(halloween,300,300, fly));
-  scene14 = new Scene(jim, new Guy(kkarp,300,300, banana));
-  scene15 = new Scene(bar, new Guy(camp,300,300, roads));
+  scene1 = new Scene(lake,new Guy(paddle, 300,300), roxy);
+  scene2 = new Scene(school, new Guy(robot,300,300), mercy);
+  scene3 = new Scene(deb,new Guy(debs,300,300), anotherGirl);
+  scene4 = new Scene(blu, new Guy(fam,300,300), ripple);
+  scene5 = new Scene(denison, new Guy(home,300,300), mapp);
+  scene6 = new Scene(prep, new Guy(frank,300,300), soul);
+  scene7 = new Scene(scripps, new Guy(squad,300,300), feilds);
+  scene8 = new Scene(room, new Guy(tinyQuinn,400,400), rain);
+  scene9 = new Scene(town, new Guy(emo,300,300), dance);
+  scene10 = new Scene(street, new Guy(pw, 450,450), rollin);
+  scene11 = new Scene(dances, new Guy(zo,300,300), hot);
+  scene12 = new Scene(coast, new Guy(ak,300,300), disco);
+  scene13 = new Scene(HW, new Guy(halloween,300,300), fly);
+  scene14 = new Scene(jim, new Guy(kkarp,300,300), banana);
+  scene15 = new Scene(bar, new Guy(camp,300,300), roads);
 
   currentScene = scene1;
 
@@ -190,62 +187,77 @@ function setup() {
 }
 
 function Press1(){
+  currentScene.stop();
   currentScene = scene1;
 }
 
-function Press2(){ 
+function Press2(){
+  currentScene.stop();
   currentScene = scene2;
 }
 
 function Press3(){
+  currentScene.stop();
   currentScene = scene3;
 }
 
 function Press4(){
+  currentScene.stop();
   currentScene = scene4;
 }
 
 function Press5(){
+  currentScene.stop();
   currentScene = scene5;
 }
 
 function Press6(){
+  currentScene.stop();
   currentScene = scene6;
 }
 
 function Press7(){
+  currentScene.stop();
   currentScene = scene7;
 }
 
 function Press8(){
+  currentScene.stop();
   currentScene = scene8;
 }
 
 function Press9(){
+  currentScene.stop();
   currentScene = scene9;
 }
 
 function Press10(){
+  currentScene.stop();
   currentScene = scene10;
 }
 
 function Press11(){
+  currentScene.stop();
   currentScene = scene11;
 }
 
 function Press12(){
+  currentScene.stop();
   currentScene = scene12;
 }
 
 function Press13(){
+  currentScene.stop();
   currentScene = scene13;
 }
 
 function Press14(){
+  currentScene.stop();
   currentScene = scene14;
 }
 
 function Press15(){
+  currentScene.stop();
   currentScene = scene15;
 }
 
@@ -256,11 +268,11 @@ function draw() {
   
   if (started == true) {
    game.update();
+   currentScene.start();
   }else{
     textSize(15)
     textAlign(CENTER)
     text("click", 200,200);
-    // currentScene = scene1;
   }}
 
 function mousePressed(){
@@ -270,12 +282,10 @@ function mousePressed(){
   
 /////////CLASSES/////////////////////////////////////////////////////////
 class Guy{
-  constructor(img, w, h, music){
+  constructor(img, w, h){
     this.img = img; 
     this.w = w;
     this.h=h;
-    this.music = music; 
-    this.musicStarted = false;
     this.x = 0;
     this.xSpeed = 3;
   }
@@ -291,17 +301,12 @@ class Guy{
     }
     imageMode(CENTER)
     image(this.img,this.x,300,this.w,this.h);
-    if(this.musicStarted == false){
-      this.music.play();
-      this.musicStarted = true;
-    }
   }
   
-   atEdge() {
+  atEdge() {
     if (this.x > width) {
       this.x = 0;
-      this.music.stop();
-      this.musicStarted = false;
+      currentScene.stop();
       return true;
     } else {
       return false;
@@ -310,9 +315,12 @@ class Guy{
 }
 
 class Scene {
-  constructor(img, Guy) {
+  constructor(img, Guy, music) {
     this.img = img;
     this.Guy = Guy;
+    this.music = music;
+    this.musicStarted = false;
+
   }
 
   update() {
@@ -324,6 +332,20 @@ class Scene {
   checkEdge() {
     return this.Guy.atEdge();
   }
+
+  start(){
+    if(this.musicStarted == false){
+      this.music.play();
+      this.musicStarted = true;
+    }
+  }
+
+  stop(){
+    if(this.musicStarted == true){
+      this.music.stop();
+      this.musicStarted = false;
+    }
+  }
 }
 
 class Game{
@@ -332,7 +354,7 @@ class Game{
   }
   
   update(){
-       for (let i = 0; i < this.sceneList.length; i++) {
+    for (let i = 0; i < this.sceneList.length; i++) {
       if (this.sceneList[i] == currentScene) {
         this.sceneList[i].update();
         if (this.sceneList[i].checkEdge()) {
